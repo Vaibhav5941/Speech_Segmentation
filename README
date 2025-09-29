@@ -1,0 +1,43 @@
+Speech Segmentation Assignment:
+
+Files Overview
+ 1. 1_extract_audio.py - Extracts audio from video/audio files
+ 2. 2_detect_speech_timestamps.py - Detects when people are speaking
+ 3. 3_segment_audio.py - Creates individual audio clips for each segment
+
+How to Run (In Sequence)
+Step 1: Extract Audio
+bashpython 1_extract_audio.py
+
+Input: test_audio.wav (or any video/audio file)
+Output: output/extracted_audio.wav
+
+Step 2: Detect Speech Timestamps
+bashpython 2_detect_speech_timestamps.py
+
+Input: output/extracted_audio.wav
+Output: output/speech_segments.json
+
+Step 3: Segment Audio
+bashpython 3_segment_audio.py
+
+Input: output/extracted_audio.wav + output/speech_segments.json
+Output: output/segments/segment_01.wav, segment_02.wav, etc.
+
+Output Structure
+output/
+├── extracted_audio.wav          # Extracted audio (Step 1)
+├── speech_segments.json         # Timestamps (Step 2)
+└── segments/                    # Individual clips (Step 3)
+    ├── segment_01.wav
+    ├── segment_02.wav
+    ├── segment_03.wav
+    └── ...
+Example JSON Output (speech_segments.json)
+json[
+  {"start": 0.00, "end": 2.97},
+  {"start": 4.47, "end": 6.93},
+  {"start": 9.93, "end": 13.89}
+]
+
+
